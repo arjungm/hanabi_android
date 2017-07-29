@@ -2,6 +2,7 @@ package arjun.hanabiandroid.game;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 
 public class GameEngine {
     private static final int INITIAL_CLUES_REMAINING = 8;
@@ -16,23 +17,25 @@ public class GameEngine {
         this.currentGameState = createInitialGameState(initialState);
     }
 
+    public void makeMove(Move move) {
+        makeMove(move, currentGameState);
+        moves.add(move);
+    }
+
+    private static void makeMove(Move move, GameState state) {
+    }
+
     private static GameState createInitialGameState(InitialState initialState) {
-        GameState state = new GameState();
-        state.turnOrder = initialState.turnOrder;
-        Hand[] hands = new Hand[initialState.numPlayers];
+        GameState state = new GameState(initialState);
 
         int cardsPerHand = initialState.numPlayers == 2 ? 5 : 4;
-        int usedCards = 0;
-        for (int i = 0; i < hands.length; i++) {
-            hands[i] = new Hand(Arrays.copyOfRange(initialState.deck, usedCards,
-                    usedCards + cardsPerHand));
-            usedCards += cardsPerHand;
+        for (int i = 0; i < state.hands.length; i++) {
+            state.hands[i] = new Hand();
+            for (int j = 0; j < cardsPerHand; j++) {
+                state.hands[i].addCard(state.getNextCard());
+            }
         }
 
-        state.deck.addAll(Arrays.asList(Arrays.copyOfRange(initialState.deck, usedCards,
-                initialState.deck.length)));
-        state.hands = hands;
-        state.piles = new Card[Suit.values().length];
         state.cluesRemaining = INITIAL_CLUES_REMAINING;
         state.mistakesRemaining = INITIAL_HINTS_REMAINING;
 

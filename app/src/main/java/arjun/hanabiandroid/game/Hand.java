@@ -1,14 +1,15 @@
 package arjun.hanabiandroid.game;
 
-public class Hand {
-    Card[] cards;
-    KnownCardInfo[] knownCardInfo;
+import java.util.ArrayList;
 
-    public Hand(Card[] cards) {
-        this.cards = cards;
-        this.knownCardInfo = new KnownCardInfo[cards.length];
-        for (int i = 0; i < knownCardInfo.length; i++) {
-            knownCardInfo[i] = new KnownCardInfo();
-        }
+public class Hand {
+    final ArrayList<CardInHand> cards = new ArrayList<>();
+
+    public void addCard(Card card) {
+        this.cards.add(new CardInHand(card));
+    }
+
+    public CardInHand removeCard(int index) {
+        return cards.remove(index);
     }
 }
