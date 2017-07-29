@@ -6,10 +6,10 @@ package arjun.hanabiandroid.game;
 
 public class HanabiCard
 {
-    HanabiSuit suit; // color of the card, which stack it is played on
+    Suit suit; // color of the card, which stack it is played on
     int rank;
 
-    HanabiCard(HanabiSuit s, int r)
+    HanabiCard(Suit s, int r)
     {
         this.suit = s;
         if(rank < 1 || rank > 5) {
@@ -24,15 +24,15 @@ public class HanabiCard
         return toChar(suit) + ", " + rank;
     }
 
-    public String toChar(HanabiSuit s)
+    public String toChar(Suit s)
     {
         switch(s) {
-            case Red:       { return "R"; }
-            case Green:     { return "G"; }
-            case Blue:      { return "B"; }
-            case White:     { return "W"; }
-            case Yellow:    { return "Y"; }
-            case Rainbow:   { return "M"; } // M for multicolor
+            case RED:       { return "R"; }
+            case GREEN:     { return "G"; }
+            case BLUE:      { return "B"; }
+            case WHITE:     { return "W"; }
+            case YELLOW:    { return "Y"; }
+            case RAINBOW:   { return "M"; } // M for multicolor
         }
         return "?";
     }

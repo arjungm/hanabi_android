@@ -7,7 +7,7 @@ package arjun.hanabiandroid.game;
 public class HanabiCardHint
 {
     // for rainbow suit, it may be hinted as any other suit
-    HanabiSuit suitHint;
+    Suit suitHint;
 
     boolean rankHint;
 }

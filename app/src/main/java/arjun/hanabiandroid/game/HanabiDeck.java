@@ -15,9 +15,9 @@ public class HanabiDeck {
     {
         cards = new ArrayList<HanabiCard>();
 
-        for(HanabiSuit suit : HanabiSuit.values()) {
+        for(Suit suit : Suit.values()) {
             // TODO: add support for multiple deck configurations
-            if(suit==HanabiSuit.Rainbow) {
+            if(suit== Suit.RAINBOW) {
                 continue;
             }
 
