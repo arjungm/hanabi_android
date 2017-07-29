@@ -8,19 +8,19 @@ import java.util.ArrayList;
 
 public class Hand
 {
-    ArrayList<HanabiCard> cards;
+    ArrayList<Card> cards;
 
-    void addCard(HanabiCard card)
+    void addCard(Card card)
     {
         cards.add(card); // always add to the end of the list
     }
 
-    HanabiCard getCard(int index)
+    Card getCard(int index)
     {
         return cards.get(index);
     }
 
-    HanabiCard removeCard(int index)
+    Card removeCard(int index)
     {
         return cards.remove(index);
     }

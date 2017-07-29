@@ -9,11 +9,11 @@ import java.util.Random;
  */
 
 public class HanabiDeck {
-    ArrayList<HanabiCard> cards;
+    ArrayList<Card> cards;
 
     HanabiDeck(int randomSeed)
     {
-        cards = new ArrayList<HanabiCard>();
+        cards = new ArrayList<Card>();
 
         for(Suit suit : Suit.values()) {
             // TODO: add support for multiple deck configurations
@@ -23,7 +23,7 @@ public class HanabiDeck {
 
             for (int rank = 1; rank <= 5; ++rank) {
 
-                HanabiCard card = new HanabiCard(suit, rank);
+                Card card = new Card(suit, rank);
                 for(int m=0; m<getCardMultiplicity(card); m++) {
                     cards.add(card);
                 }
@@ -33,7 +33,7 @@ public class HanabiDeck {
         Collections.shuffle(cards, new Random(randomSeed));
     }
 
-    int getCardMultiplicity(HanabiCard card) {
+    int getCardMultiplicity(Card card) {
         switch(card.rank) {
             case 1: { return 3; }
             case 2: { return 2; }
@@ -50,7 +50,7 @@ public class HanabiDeck {
         return cards.size();
     }
 
-    HanabiCard dealCard()
+    Card dealCard()
     {
         return cards.remove(0);
     }
