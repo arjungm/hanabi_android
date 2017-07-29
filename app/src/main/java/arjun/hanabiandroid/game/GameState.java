@@ -1,11 +1,13 @@
 package arjun.hanabiandroid.game;
 
+import java.util.ArrayList;
+
 public class GameState {
-    private int turnOrder;
-    private Card[] deck;
-    private Hand[] hands;
-    private Card[] discard;
-    private Card[] piles;
-    private int cluesRemaining;
-    private int mistakesRemaining;
+    int turnOrder;
+    final ArrayList<Card> deck = new ArrayList<>();
+    ArrayList<Card> discard = new ArrayList<>();
+    Hand[] hands;
+    Card[] piles;
+    int cluesRemaining;
+    int mistakesRemaining;
 }

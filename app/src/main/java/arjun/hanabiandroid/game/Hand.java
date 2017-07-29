@@ -1,34 +1,14 @@
 package arjun.hanabiandroid.game;
 
-import java.util.ArrayList;
+public class Hand {
+    Card[] cards;
+    KnownCardInfo[] knownCardInfo;
 
-/**
- * Created by arjun on 7/2/17.
- */
-
-public class Hand
-{
-    ArrayList<Card> cards;
-
-    void addCard(Card card)
-    {
-        cards.add(card); // always add to the end of the list
+    public Hand(Card[] cards) {
+        this.cards = cards;
+        this.knownCardInfo = new KnownCardInfo[cards.length];
+        for (int i = 0; i < knownCardInfo.length; i++) {
+            knownCardInfo[i] = new KnownCardInfo();
+        }
     }
-
-    Card getCard(int index)
-    {
-        return cards.get(index);
-    }
-
-    Card removeCard(int index)
-    {
-        return cards.remove(index);
-    }
-
-    int getSize()
-    {
-        return cards.size();
-    }
-
-    // TODO methods to reorganize hand? useful feature for advanced players?
 }
