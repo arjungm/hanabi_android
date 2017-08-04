@@ -32,7 +32,7 @@ public class GameEngine {
         for (int i = 0; i < state.hands.length; i++) {
             state.hands[i] = new Hand();
             for (int j = 0; j < cardsPerHand; j++) {
-                state.hands[i].addCard(state.getNextCard());
+                state.hands[i].addCard(state.deck.getNextCard());
             }
         }
 

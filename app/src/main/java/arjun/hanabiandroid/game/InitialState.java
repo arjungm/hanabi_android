@@ -7,11 +7,14 @@ public class InitialState {
     final long seed;
     final int numPlayers;
     final int turnOrder;
+    final Deck deck;
 
     public InitialState(GameVariant gameVariant, long seed, int numPlayers, int turnOrder) {
         this.gameVariant = gameVariant;
         this.seed = seed;
         this.numPlayers = numPlayers;
         this.turnOrder = turnOrder;
+        this.deck = gameVariant.generateVanillaDeck();
+        deck.shuffle(seed);
     }
 }
