@@ -5,6 +5,7 @@ import android.support.annotation.IntDef;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
+import arjun.hanabiandroid.DebugUtil;
 import arjun.hanabiandroid.game.CardInHand;
 import arjun.hanabiandroid.game.Move;
 import arjun.hanabiandroid.game.Suit;
@@ -34,6 +35,7 @@ public abstract class GameVariant {
             case GAME_TYPE_RAINBOW_WILDCARD:
                 return new RainbowWildcard();
         }
+        DebugUtil.logException(new IllegalStateException("Unknown game type"), gameType);
         return null;
     }
 
