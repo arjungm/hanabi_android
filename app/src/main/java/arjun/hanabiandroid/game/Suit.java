@@ -8,6 +8,8 @@ public enum Suit {
     YELLOW("Y"),
     RAINBOW("R");
 
+    protected static final Suit[] REGULAR = new Suit[]{RED, WHITE, BLUE, GREEN, YELLOW};
+
     public final String stringRepresentation;
 
     Suit(String stringRepresentation) {

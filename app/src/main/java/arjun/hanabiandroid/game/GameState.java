@@ -8,7 +8,7 @@ public class GameState {
     final Queue<Card> deck;
     final ArrayList<Card> discard = new ArrayList<>();
     final Hand[] hands;
-    final Card[] piles;
+    final int[] piles;
     int cluesRemaining;
     int mistakesRemaining;
 
@@ -16,7 +16,7 @@ public class GameState {
         this.turnOrder = initialState.turnOrder;
         this.deck = DeckGenerator.generateDeck(initialState);
         this.hands = new Hand[initialState.numPlayers];
-        this.piles = new Card[Suit.values().length - (initialState.hasRainbowSuit() ? 0 : 1)];
+        this.piles = new int[initialState.gameVariant.getSuits().length];
     }
 
     public Card getNextCard() {
